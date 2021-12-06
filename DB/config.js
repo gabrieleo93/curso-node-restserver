@@ -2,26 +2,23 @@ const mongoose = require('mongoose');
 
 
 
-const dbconnection = async() =>{
+const dbConnection = async() => {
 
-    try{
-        await mongoose.connect(process.env.MONDODB_CNN, {
+    try {
+
+        await mongoose.connect( process.env.MONGODB_CNN, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            userCreateIndex: true,
+            useCreateIndex: true,
             useFindAndModify: false
         });
-        console.log('base de dato online');
+    
+        console.log('Base de datos online');
 
-        
-
-
-    }catch(error){
+    } catch (error) {
         console.log(error);
-        throw new Error ('Error a la hora de iniciar la base de datos')
+        throw new Error('Error a la hora de iniciar la base de datos');
     }
-
-
 
 
 }
@@ -29,6 +26,5 @@ const dbconnection = async() =>{
 
 
 module.exports = {
-
-    dbconnection
+    dbConnection
 }
